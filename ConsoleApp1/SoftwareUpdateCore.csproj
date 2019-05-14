@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DBDrivers\MySql.Data.dll" />
+    <None Remove="DBDrivers\Npgsql.dll" />
+    <None Remove="DBDrivers\Oracle.ManagedDataAccess.dll" />
+    <None Remove="DBPoolCfg\DBType.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="DBDrivers\MySql.Data.dll" />
+    <Content Include="DBDrivers\Npgsql.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DBDrivers\Oracle.ManagedDataAccess.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SoftUpdate\SoftUpdateLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="DBPoolCfg\DBType.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DBPoolCfg\Hikari.cfg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
